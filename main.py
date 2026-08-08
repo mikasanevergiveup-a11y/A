@@ -10,7 +10,6 @@ from telebot import types
 # 1. CONFIGURATION
 # ==========================================
 BOT_TOKEN = "8946305512:AAEf9obGZhn9iix6CoUa0jMwRa1ngfWDmNU"
-ADMIN_GROUP_ID = "-100123456789"  # မိမိရဲ့ Admin Group ID
 
 bot = telebot.TeleBot(BOT_TOKEN)
 
@@ -37,7 +36,7 @@ def ping_self():
     Render Web Service မအိပ်သွားစေရန် ၅ မိနစ်တစ်ကြိမ် 
     မိမိ Public URL သို့ ping ပို့ပေးသည့် စနစ်
     """
-    time.sleep(20)  # Server စတင်တက်လာအောင် ၂၀ စက္ကန့် စောင့်မည်
+    time.sleep(20)  
     while True:
         try:
             target_url = RENDER_URL if RENDER_URL else f"http://127.0.0.1:{PORT}/"
@@ -46,7 +45,7 @@ def ping_self():
         except Exception as e:
             print(f"⚠️ Self-ping error: {e}")
         
-        time.sleep(300)  # ၅ မိနစ် (၃၀၀ စက္ကန့်) ခြားတစ်ကြိမ် ping ပါမည်
+        time.sleep(300) 
 
 # ==========================================
 # 3. BOT COMMAND HANDLERS
@@ -93,9 +92,10 @@ def show_menu(chat_id):
     btn_game = types.InlineKeyboardButton(text="ဂိမ်းလင့်", url="https://t.me/CandyHub8_bot/app?startapp=jpBACimToMNYu3xnnvCSLoz6vqi2")
     btn_register = types.InlineKeyboardButton(text="အကောင့်ဖွင့်နည်း", callback_data="acc_register")
     btn_withdraw = types.InlineKeyboardButton(text="ငွေထုတ်နည်း", callback_data="withdraw_guide")
-    btn_task = types.InlineKeyboardButton(text="task လုပ်နည်း", callback_data="task_guide")
+    btn_market = types.InlineKeyboardButton(text="Market သုံးနည်း", callback_data="market_guide")
+    btn_task = types.InlineKeyboardButton(text="Task လုပ်နည်း", callback_data="task_guide")
     
-    markup.add(btn_features, btn_game, btn_register, btn_withdraw, btn_task)
+    markup.add(btn_features, btn_game, btn_register, btn_withdraw, btn_market, btn_task)
     
     bot.send_message(chat_id, menu_text, reply_markup=markup, parse_mode="Markdown")
 
@@ -111,28 +111,28 @@ def callback_inline(call):
         bot.answer_callback_query(call.id, text="စစ်ဆေးမှု အောင်မြင်ပါသည်။")
         show_menu(chat_id)
         
-    # Button 1: လုပ်ဆောင်နိုင်တဲ့အရာများ
+    # လုပ်ဆောင်နိုင်တဲ့အရာများ
     elif call.data == "features":
         bot.answer_callback_query(call.id)
         text = (
             "ဂိမ်းဆော့ရင်း အပိုဝင်ငွေ ရှာချင်သူတွေအတွက် သတင်းကောင်း! 🍬✨\n\n"
             "ဘာလို့ Candy Shooter မှာဘာ‌လေးတွေလုပ်ပြီငွေရှာလို့ရနိုင်သလဲ?\n\n"
             "✅ **နေ့စဉ် Task များ:** APK ဒေါင်းလုဒ်ဆွဲပြီး Task လုပ်ရုံနဲ့ တစ်နေ့ကို ကိုယ် ဆွဲနိုင်သလောက် coin များရယူနိုင်ခြင်း\n\n"
-            "✅ **Youtube ကြည့်ပြီး Coin စုမယ်:** YouTube video လေးတွေ ကြည့်ပေးလို့ရပါတယ်။ ထမင်းစားရင်းပဲကြည့်ကြည့် YouTube ထဲမှာရှိသမျှ video တွေအကုန်ကြည့်နိုင်ပါတယ်နော်။"
+            "✅ **Youtube ကြည့်ပြီး Coin စုမယ်:** YouTube video လေးတွေ ကြည့်ပေးလို့ရပါတယ်။ ထမင်းစားရင်းပဲကြည့်ကြည့် YouTube ထဲမှာရှိသမျှ video တွေအကုန်ကြည့်နိုင်ပါတယ်နော်。"
         )
         markup = types.InlineKeyboardMarkup()
         markup.add(types.InlineKeyboardButton(text="⬅️ Menu သို့ပြန်သွားရန်", callback_data="back_to_menu"))
         bot.send_message(chat_id, text, reply_markup=markup, parse_mode="Markdown")
         
-    # Button 3: အကောင့်ဖွင့်နည်း
+    # အကောင့်ဖွင့်နည်း (ပုံ ၄ ပုံ)
     elif call.data == "acc_register":
         bot.answer_callback_query(call.id)
         try:
             media = [
-                types.InputMediaPhoto(open('acc_1.jpg', 'rb')),
-                types.InputMediaPhoto(open('acc_2.jpg', 'rb')),
-                types.InputMediaPhoto(open('acc_3.jpg', 'rb')),
-                types.InputMediaPhoto(open('acc_4.jpg', 'rb'))
+                types.InputMediaPhoto(open('59095.jpg', 'rb')),
+                types.InputMediaPhoto(open('59096.jpg', 'rb')),
+                types.InputMediaPhoto(open('59097.jpg', 'rb')),
+                types.InputMediaPhoto(open('59098.jpg', 'rb'))
             ]
             bot.send_media_group(chat_id, media)
         except Exception as e:
@@ -155,14 +155,14 @@ def callback_inline(call):
         markup.add(types.InlineKeyboardButton(text="⬅️ Menu သို့ပြန်သွားရန်", callback_data="back_to_menu"))
         bot.send_message(chat_id, text, reply_markup=markup, disable_web_page_preview=True)
         
-    # Button 5: ငွေထုတ်နည်း
+    # ငွေထုတ်နည်း (ပုံ ၃ ပုံ)
     elif call.data == "withdraw_guide":
         bot.answer_callback_query(call.id)
         try:
             media = [
-                types.InputMediaPhoto(open('withdraw_1.jpg', 'rb')),
-                types.InputMediaPhoto(open('withdraw_2.jpg', 'rb')),
-                types.InputMediaPhoto(open('withdraw_3.jpg', 'rb'))
+                types.InputMediaPhoto(open('59099.jpg', 'rb')),
+                types.InputMediaPhoto(open('59100.jpg', 'rb')),
+                types.InputMediaPhoto(open('59101.jpg', 'rb'))
             ]
             bot.send_media_group(chat_id, media)
         except Exception as e:
@@ -183,13 +183,37 @@ def callback_inline(call):
         markup = types.InlineKeyboardMarkup()
         markup.add(types.InlineKeyboardButton(text="⬅️ Menu သို့ပြန်သွားရန်", callback_data="back_to_menu"))
         bot.send_message(chat_id, text, reply_markup=markup)
+
+    # Market သုံးနည်း (ပုံ ၂ ပုံ နှင့် စာသားအပြည့်အစုံ)
+    elif call.data == "market_guide":
+        bot.answer_callback_query(call.id)
+        try:
+            media = [
+                types.InputMediaPhoto(open('59102.jpg', 'rb')),
+                types.InputMediaPhoto(open('59104.jpg', 'rb'))
+            ]
+            bot.send_media_group(chat_id, media)
+        except Exception as e:
+            print(f"Image send error: {e}")
+            
+        text = (
+            "ဈေးကွက် (Market) အသုံးပြုနည်း 📊\n\n"
+            "1. ဂိမ်းဘော့တ် (Bot) ထဲဝင်ပြီး Market သို့မဟုတ် ဈေးကွက်ဆိုသည့် နေရာကို သွားပါ။🏪\n\n"
+            "2. မိမိဝယ်ယူလိုသော ပစ္စည်း သို့မဟုတ် Item များကို ရွေးချယ်ပါ။🛒\n\n"
+            "3. လိုအပ်သော Coin သို့မဟုတ် ငွေပမာဏကို စစ်ဆေးပြီး ဝယ်ယူမှု (Buy) ကို အတည်ပြုပါ။💳\n\n"
+            "4. အချက်အလက်များ မှန်ကန်ကြောင်း သေချာစစ်ဆေးပြီးပါက ဈေးကွက်မှ ဝယ်ယူခြင်း ပြီးဆုံးပါပြီ။🥳\n\n"
+            "⚠️❌ သတိပြုရန် - ဝယ်ယူထားသော ပစ္စည်းများ သို့မဟုတ် ဈေးကွက်ဆိုင်ရာ အချက်အလက်များကို သေချာ မှတ်သားထားပါ။📲"
+        )
+        markup = types.InlineKeyboardMarkup()
+        markup.add(types.InlineKeyboardButton(text="⬅️ Menu သို့ပြန်သွားရန်", callback_data="back_to_menu"))
+        bot.send_message(chat_id, text, reply_markup=markup)
         
-    # Button 6: Task လုပ်နည်း
+    # Task လုပ်နည်း (ဗီဒီယို နှင့် ပုံ)
     elif call.data == "task_guide":
         bot.answer_callback_query(call.id)
         try:
-            bot.send_video(chat_id, open('task_video.mp4', 'rb'))
-            bot.send_photo(chat_id, open('task_sample.jpg', 'rb'))
+            bot.send_video(chat_id, open('59090.mp4', 'rb'))
+            bot.send_photo(chat_id, open('59105.jpg', 'rb'))
         except Exception as e:
             print(f"Media send error: {e}")
             
@@ -205,7 +229,7 @@ def callback_inline(call):
         markup.add(types.InlineKeyboardButton(text="⬅️ Menu သို့ပြန်သွားရန်", callback_data="back_to_menu"))
         bot.send_message(chat_id, text, reply_markup=markup)
 
-    # Back to Menu Button
+    # Menu သို့ ပြန်သွားရန်
     elif call.data == "back_to_menu":
         bot.answer_callback_query(call.id)
         show_menu(chat_id)
@@ -216,8 +240,6 @@ def callback_inline(call):
 if __name__ == "__main__":
     print("=" * 50)
     print("🍬 Candy Hub Bot စတင်နေပါပြီ...")
-    print(f"🤖 Bot Token: {BOT_TOKEN[:10]}...")
-    print(f"🌐 Running on Port: {PORT}")
     print("=" * 50)
 
     # 1. Flask server ကို Background Thread ဖြင့် Run သည့်စနစ်
@@ -251,4 +273,4 @@ if __name__ == "__main__":
             print(f"⚠️ Polling error: {e}")
             print("🔄 Reconnecting in 5 seconds...")
             time.sleep(5)
-      
+
