@@ -124,15 +124,15 @@ def callback_inline(call):
         markup.add(types.InlineKeyboardButton(text="⬅️ Menu သို့ပြန်သွားရန်", callback_data="back_to_menu"))
         bot.send_message(chat_id, text, reply_markup=markup, parse_mode="Markdown")
         
-    # အကောင့်ဖွင့်နည်း (ပုံ ၄ ပုံ)
+    # အကောင့်ဖွင့်နည်း (ပုံ ၄ ပုံ - File ID များဖြင့်)
     elif call.data == "acc_register":
         bot.answer_callback_query(call.id)
         try:
             media = [
-                types.InputMediaPhoto(open('59095.jpg', 'rb')),
-                types.InputMediaPhoto(open('59096.jpg', 'rb')),
-                types.InputMediaPhoto(open('59097.jpg', 'rb')),
-                types.InputMediaPhoto(open('59098.jpg', 'rb'))
+                types.InputMediaPhoto("AgACAgUAAxkBA3AO2mp2sXWKkjSR5FbcpZwj7NhJP_wYAAJYEWsbjtm5VxIwPIqXVEhgAQADAgADeQADPQQ"),
+                types.InputMediaPhoto("AgACAgUAAxkBA3AO3mp2sXUOhSccKt94Yy4_NGedIdEnAAJREWsbjtm5V1j_JIMLbCmOAQADAgADeQADPQQ"),
+                types.InputMediaPhoto("AgACAgUAAxkBA3AO3Gp2sXUW3kPvTHQmzLsvnC_cwIwaAAJSEWsbjtm5V3hwVnaWiH_4AQADAgADeQADPQQ"),
+                types.InputMediaPhoto("AgACAgUAAxkBA3AO22p2sXUXwWuKHhd8n8aNwZBFEwTMAAJTEWsbjtm5V0CGK6LI4I8KAQADAgADeQADPQQ")
             ]
             bot.send_media_group(chat_id, media)
         except Exception as e:
@@ -155,14 +155,14 @@ def callback_inline(call):
         markup.add(types.InlineKeyboardButton(text="⬅️ Menu သို့ပြန်သွားရန်", callback_data="back_to_menu"))
         bot.send_message(chat_id, text, reply_markup=markup, disable_web_page_preview=True)
         
-    # ငွေထုတ်နည်း (ပုံ ၃ ပုံ)
+    # ငွေထုတ်နည်း (ပုံ ၃ ပုံ - File ID များဖြင့်)
     elif call.data == "withdraw_guide":
         bot.answer_callback_query(call.id)
         try:
             media = [
-                types.InputMediaPhoto(open('59099.jpg', 'rb')),
-                types.InputMediaPhoto(open('59100.jpg', 'rb')),
-                types.InputMediaPhoto(open('59101.jpg', 'rb'))
+                types.InputMediaPhoto("AgACAgUAAxkBA3AO1Wp2sXSt4Hunl6fgFYG9WD_YOP5OAAJcEWsbjtm5V9BqF-p82BxYAQADAgADeQADPQQ"),
+                types.InputMediaPhoto("AgACAgUAAxkBA3AO1Gp2sXRe5Rq5dt8IBeAJZiWetlhOAAJdEWsbjtm5V_h0TfUlB--XAQADAgADeQADPQQ"),
+                types.InputMediaPhoto("AgACAgUAAxkBA3AO12p2sXTfGDrJFYkhBBkcsh-Igy4PAAJeEWsbjtm5Vzs_k_KBLMaKAQADAgADeQADPQQ")
             ]
             bot.send_media_group(chat_id, media)
         except Exception as e:
@@ -184,13 +184,13 @@ def callback_inline(call):
         markup.add(types.InlineKeyboardButton(text="⬅️ Menu သို့ပြန်သွားရန်", callback_data="back_to_menu"))
         bot.send_message(chat_id, text, reply_markup=markup)
 
-    # Market သုံးနည်း (ပုံ ၂ ပုံ နှင့် စာသားအပြည့်အစုံ)
+    # Market သုံးနည်း (ပုံ ၂ ပုံ - File ID များဖြင့်)
     elif call.data == "market_guide":
         bot.answer_callback_query(call.id)
         try:
             media = [
-                types.InputMediaPhoto(open('59102.jpg', 'rb')),
-                types.InputMediaPhoto(open('59104.jpg', 'rb'))
+                types.InputMediaPhoto("AgACAgUAAxkBA3AO2mp2sXWKkjSR5FbcpZwj7NhJP_wYAAJYEWsbjtm5VxIwPIqXVEhgAQADAgADeQADPQQ"),
+                types.InputMediaPhoto("AgACAgUAAxkBA3AO22p2sXUXwWuKHhd8n8aNwZBFEwTMAAJTEWsbjtm5V0CGK6LI4I8KAQADAgADeQADPQQ")
             ]
             bot.send_media_group(chat_id, media)
         except Exception as e:
@@ -198,22 +198,29 @@ def callback_inline(call):
             
         text = (
             "ဈေးကွက် (Market) အသုံးပြုနည်း 📊\n\n"
-            "1. ဂိမ်းဘော့တ် (Bot) ထဲဝင်ပြီး Market သို့မဟုတ် ဈေးကွက်ဆိုသည့် နေရာကို သွားပါ။🏪\n\n"
-            "2. မိမိဝယ်ယူလိုသော ပစ္စည်း သို့မဟုတ် Item များကို ရွေးချယ်ပါ။🛒\n\n"
-            "3. လိုအပ်သော Coin သို့မဟုတ် ငွေပမာဏကို စစ်ဆေးပြီး ဝယ်ယူမှု (Buy) ကို အတည်ပြုပါ။💳\n\n"
-            "4. အချက်အလက်များ မှန်ကန်ကြောင်း သေချာစစ်ဆေးပြီးပါက ဈေးကွက်မှ ဝယ်ယူခြင်း ပြီးဆုံးပါပြီ။🥳\n\n"
-            "⚠️❌ သတိပြုရန် - ဝယ်ယူထားသော ပစ္စည်းများ သို့မဟုတ် ဈေးကွက်ဆိုင်ရာ အချက်အလက်များကို သေချာ မှတ်သားထားပါ။📲"
+            "သလေတို့ရေ\n"
+            "သလေတို့အတွက် Market အကြောင်း ရှင်းပြပေးပါမယ်နော်🫶\n\n"
+            "သူကလေ ကိုယ့်ပါပါလာ mmk and coin ရောင်းး & ဝယ် လုပ်လို့ရတဲ့ဟာလေးပါနော် coin ပြန်ရောင်းချင်လဲ ရသလို coin ပြန်လဲချင်ပါတယ်နော် မြန်မာငွေ mmk ကိုလည်း ပြောင်းလို့လဲ ရပါတယ်နော်🐒🫶\n\n"
+            "ဘယ်လို လုပ်ရတာလဲ?\n"
+            "လုပ်နည်းရှိပါတယ်ရှင်😉\n\n"
+            "အရောင်းအဝယ်လုပ်နည်း👇\n\n"
+            "Step 1- botထဲကိုဝင်ပြီးတာနဲ့ ဈေးကွက် ကိုနှိပ်ပါ\n\n"
+            "Step 2-ဝယ်မယ်ဆို (ဝယ်)နေရာကိုနှိပ်ပါ ရောင်းမယ်ဆို(ရောင်းး)ကိုနှိပ်ပါ\n\n"
+            "Step 3- ပြီးလျှင် မိမိ ဝယ်ချင်/ရောင်းချင်သည့် ပမာဏကို ရေးထည့်ပါ(အောက်တွင် နှုန်းဖန်း-တန်ဖိုးကို ကြည့်နိုင်မည်)\n\n"
+            "Step 4- ပမာဏထည့်ပြီးပါက ရောင်းမယ်ဆို(ရောင်းမည်)နှိပ်ပါ ဝယ်မယ်ဆို (ဝယ်ယူမည်)ကိုနှိပ်ပါ\n\n"
+            "အဲ့ဒါဆို ရပါပြီကောင့်✅\n\n"
+            "ပြီးတော့ မင်မင်တို့ပြောချင်တာကလေ ဈေးကွက် အတက်အကျ အမြဲရှိပါတယ်နော်တို႔အားလုံးပဲ အားပေးကြပါစို့ရှင့်✨"
         )
         markup = types.InlineKeyboardMarkup()
         markup.add(types.InlineKeyboardButton(text="⬅️ Menu သို့ပြန်သွားရန်", callback_data="back_to_menu"))
         bot.send_message(chat_id, text, reply_markup=markup)
         
-    # Task လုပ်နည်း (ဗီဒီယို နှင့် ပုံ)
+    # Task လုပ်နည်း (ဗီဒီယို နှင့် ပုံ - File ID များဖြင့်)
     elif call.data == "task_guide":
         bot.answer_callback_query(call.id)
         try:
-            bot.send_video(chat_id, open('59090.mp4', 'rb'))
-            bot.send_photo(chat_id, open('59105.jpg', 'rb'))
+            bot.send_video(chat_id, "AAMCBQADGQEDcA7SanaxdDCFwGnOmHCKvBuRavJuPz0AAlIeAAKO2blXHq6q15W5KX4BAAdtAAM9BA")
+            bot.send_photo(chat_id, "AgACAgUAAxkBA3AQVWp2s9DXYC-qOPbCV8CsWuUh_VcgAAJfEWsbjtm5V2YZbSoPmNoiAQADAgADeQADPQQ")
         except Exception as e:
             print(f"Media send error: {e}")
             
@@ -273,4 +280,4 @@ if __name__ == "__main__":
             print(f"⚠️ Polling error: {e}")
             print("🔄 Reconnecting in 5 seconds...")
             time.sleep(5)
-
+        
